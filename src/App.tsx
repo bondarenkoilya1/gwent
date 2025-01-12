@@ -1,3 +1,3 @@
 export const App = () => {
-  return <>1</>;
+  return <>App component</>;
 };
