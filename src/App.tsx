@@ -1,5 +1,14 @@
+import { Global } from "@emotion/react";
+
+import { GlobalStyle } from "./styled";
+
 import { Layout } from "./layout";
 
 export const App = () => {
-  return <Layout />;
+  return (
+    <>
+      <Global styles={GlobalStyle} />
+      <Layout />
+    </>
+  );
 };
