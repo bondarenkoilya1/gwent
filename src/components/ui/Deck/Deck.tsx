@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
 
 import {
   CARDS_IN_DECK,
@@ -50,14 +51,7 @@ export const Deck = () => {
       <h2>Deck</h2>
       <CardRow>
         {cardsInDeck.map(({ name, description, type, points }) => (
-          <Card
-            name={name}
-            description={description}
-            type={type}
-            points={points}
-            // todo: use library for uuids
-            key={crypto.randomUUID()}
-          />
+          <Card name={name} description={description} type={type} points={points} key={uuidv4()} />
         ))}
       </CardRow>
 
@@ -91,14 +85,7 @@ function renderFirstCard(firstCard: CardProps, zIndex: number, positionRight: nu
   return (
     <div
       style={{ position: "absolute", zIndex: `${zIndex}`, top: "0", right: `${positionRight}%` }}>
-      <Card
-        name={name}
-        description={description}
-        type={type}
-        points={points}
-        // todo: use library for uuids
-        key={crypto.randomUUID()}
-      />
+      <Card name={name} description={description} type={type} points={points} key={uuidv4()} />
     </div>
   );
 }
