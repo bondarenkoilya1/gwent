@@ -1,4 +1,4 @@
-export const CARDS_IN_DECK = 5;
+export const CARDS_IN_DECK = 7;
 
 // temporary as json file, in the future - move to a real database
 export const NORTHERN_REALMS_CARDS_ARRAY = "./northernRealms.json";
