@@ -4,11 +4,18 @@ import { css } from "@emotion/react";
 
 import styled from "@emotion/styled";
 
+import woodImage from "./assets/photos/wood.jpg";
+
 export const GlobalStyle = css`
   ${emotionReset}
 
   html {
     box-sizing: border-box;
+    background:
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+      url(${woodImage}) center/cover no-repeat;
+    height: 100%;
+    width: 100%;
   }
 
   *,
