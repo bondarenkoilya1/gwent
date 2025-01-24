@@ -61,19 +61,44 @@ export const Deck = () => {
         ))}
       </CardRow>
 
-      <h2>Rest</h2>
-      <CardRow>
-        {cards.map(({ name, description, type, points }) => (
-          <Card
-            name={name}
-            description={description}
-            type={type}
-            points={points}
-            // todo: use library for uuids
-            key={crypto.randomUUID()}
-          />
-        ))}
-      </CardRow>
+      {renderRestOfTheCards(cards)}
     </div>
   );
 };
+
+// probably useless component, todo: remove later
+// now it's just to make code more readable
+function renderRestOfTheCards(cards: CardProps[]) {
+  return (
+    <>
+      <h2 style={{ marginTop: "30px" }}>Rest</h2>
+      {cards.length >= 1 && (
+        <div style={{ position: "relative", width: "200px" }}>
+          {renderFirstCard(cards[0], 0, 0)}
+          {cards.length >= 2 && renderFirstCard(cards[0], -1, -5)}
+          {cards.length >= 3 && renderFirstCard(cards[0], -2, -10)}
+        </div>
+      )}
+    </>
+  );
+}
+
+// probably useless component, todo: remove later
+// now it's just to make code more readable
+function renderFirstCard(firstCard: CardProps, zIndex: number, positionRight: number) {
+  const { name, description, type, points } = firstCard;
+
+  return (
+    <div
+      style={{ position: "absolute", zIndex: `${zIndex}`, top: "0", right: `${positionRight}%` }}>
+      <Card
+        name={name}
+        description={description}
+        type={type}
+        points={points}
+        // todo: use library for uuids
+        key={crypto.randomUUID()}
+      />
+    </div>
+  );
+}
