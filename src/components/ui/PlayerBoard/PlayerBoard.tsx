@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { CardProps } from "../../../types/components";
 import { Card } from "../Card";
-import { CardRow } from "../CardRow/CardRow.tsx";
+import { CardRow } from "../CardRow";
 
 export const PlayerBoard = () => {
   const [cardsInBoard, setCardsInBoard] = useState<CardProps[]>([]);
