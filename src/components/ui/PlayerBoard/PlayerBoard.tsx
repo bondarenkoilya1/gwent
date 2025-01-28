@@ -34,7 +34,7 @@ export const PlayerBoard = () => {
 
   return (
     <div style={{ width: "100%" }}>
-      <CardRow>
+      <CardRow type="close">
         {cardsOnBoard[0].cards.map(({ name, description, type, points }) => (
           <Card key={uuidv4()} name={name} description={description} type={type} points={points} />
         ))}
