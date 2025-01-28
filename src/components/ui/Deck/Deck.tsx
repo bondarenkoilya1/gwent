@@ -12,6 +12,7 @@ import { useCardSetup } from "../../../hooks";
 import { CardsOnBoardUpdater, CardType } from "../../../types";
 import { Card } from "../Card";
 import { CardRow } from "../CardRow";
+import { Error } from "../Error";
 
 export const Deck: FC<CardsOnBoardUpdater> = ({ setCardsOnBoard }) => {
   const { cardsInDeck, loading, error } = useCardSetup(
@@ -49,9 +50,8 @@ export const Deck: FC<CardsOnBoardUpdater> = ({ setCardsOnBoard }) => {
         </TemporaryButtonStyled>
       ))}
 
-      {/*TODO: Create error component */}
       {/*TODO: Firstly i create branch for creating an error component; Then branch for publishing changes about card transferring*/}
-      <h3>{error}</h3>
+      {error && <Error unspecifiedErrorMessage={error} />}
       <TitleStyled>Your Deck</TitleStyled>
       <CardRow type="deck">
         {cardsInDeck.map(({ name, description, type, points }) => (
