@@ -6,4 +6,5 @@ export type RowType = CardType | "deck";
 
 export type CardRowProps = Children & {
   type: RowType;
+  className?: string;
 };

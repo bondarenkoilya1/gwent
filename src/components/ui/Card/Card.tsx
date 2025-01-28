@@ -1,27 +1,27 @@
 import { FC } from "react";
 
 import {
-  CardDescriptionStyled,
+  // CardDescriptionStyled,
   CardNameStyled,
-  CardPointsStyled,
-  CardStyled,
-  CardTextHighlighted,
-  CardTypeStyled
+  // CardPointsStyled,
+  CardStyled
+  // CardTextHighlighted,
+  // CardTypeStyled
 } from "./styled";
 
 import { CardProps } from "../../../types";
 
-export const Card: FC<CardProps> = ({ name, description, type, points }) => {
+export const Card: FC<CardProps> = ({ name, onClick }) => {
   return (
-    <CardStyled>
+    <CardStyled onClick={onClick}>
       <CardNameStyled>{name}</CardNameStyled>
-      <CardDescriptionStyled>{description}</CardDescriptionStyled>
-      <CardTypeStyled>
-        Type: <CardTextHighlighted>{type}</CardTextHighlighted>
-      </CardTypeStyled>
-      <CardPointsStyled>
-        Points: <CardTextHighlighted> {points}</CardTextHighlighted>
-      </CardPointsStyled>
+      {/*<CardDescriptionStyled>{description}</CardDescriptionStyled>*/}
+      {/*<CardTypeStyled>*/}
+      {/*  Type: <CardTextHighlighted>{type}</CardTextHighlighted>*/}
+      {/*</CardTypeStyled>*/}
+      {/*<CardPointsStyled>*/}
+      {/*  Points: <CardTextHighlighted> {points}</CardTextHighlighted>*/}
+      {/*</CardPointsStyled>*/}
     </CardStyled>
   );
 };
