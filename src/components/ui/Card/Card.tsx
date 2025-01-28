@@ -11,9 +11,9 @@ import {
 
 import { CardProps } from "../../../types";
 
-export const Card: FC<CardProps> = ({ name, description, type, points, ...attrs }) => {
+export const Card: FC<CardProps> = ({ name, description, type, points }) => {
   return (
-    <CardStyled {...attrs}>
+    <CardStyled>
       <CardNameStyled>{name}</CardNameStyled>
       <CardDescriptionStyled>{description}</CardDescriptionStyled>
       <CardTypeStyled>
