@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import { NORTHERN_REALMS_CARDS_ARRAY, NORTHERN_REALMS_CARDS_QUANTITY } from "../../../constants";
 import { useCardSetup } from "../../../hooks";
-// import { CardProps } from "../../../types/components";
+// import { CardProps } from "../../../types";
 import { Card } from "../Card";
 import { CardRow } from "../CardRow";
 
