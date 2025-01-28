@@ -1,4 +1,4 @@
-type CardType = "close" | "range" | "siege";
+export type CardType = "close" | "range" | "siege";
 
 export type CardProps = {
   name: string;

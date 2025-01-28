@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 import { CARDS_IN_DECK } from "../constants";
-import { CardProps } from "../types/components";
+import { CardProps } from "../types";
 import { pickUniqueRandomNumbers, validateError } from "../utils";
 
 export const useCardSetup = (fullDeckName: string, fullDeckCardsQuantity: number) => {

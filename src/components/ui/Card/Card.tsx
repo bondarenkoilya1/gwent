@@ -9,7 +9,7 @@ import {
   CardTypeStyled
 } from "./styled";
 
-import { CardProps } from "../../../types/components";
+import { CardProps } from "../../../types";
 
 export const Card: FC<CardProps> = ({ name, description, type, points, ...attrs }) => {
   return (
