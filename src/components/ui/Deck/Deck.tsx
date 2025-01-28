@@ -43,7 +43,6 @@ export const Deck: FC<CardsOnBoardUpdater> = ({ setCardsOnBoard }) => {
 
   return (
     <DeckStyled>
-      {/*TODO: Firstly i create branch for creating an error component; Then branch for publishing changes about card transferring*/}
       {error && <Error unspecifiedErrorMessage={error} />}
 
       <TitleStyled>Your Deck</TitleStyled>
