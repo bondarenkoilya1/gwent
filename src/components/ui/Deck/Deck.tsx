@@ -1,7 +1,13 @@
 import { FC } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-import { NORTHERN_REALMS_CARDS_ARRAY, NORTHERN_REALMS_CARDS_QUANTITY } from "../../../constants";
+import { DeckStyled, LoadingMessageStyled, TemporaryButtonStyled, TitleStyled } from "./styled";
+
+import {
+  CARD_TYPES,
+  NORTHERN_REALMS_CARDS_ARRAY,
+  NORTHERN_REALMS_CARDS_QUANTITY
+} from "../../../constants";
 import { useCardSetup } from "../../../hooks";
 import { CardsOnBoardUpdater, CardType } from "../../../types";
 import { Card } from "../Card";
@@ -13,7 +19,7 @@ export const Deck: FC<CardsOnBoardUpdater> = ({ setCardsOnBoard }) => {
     NORTHERN_REALMS_CARDS_QUANTITY
   );
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <LoadingMessageStyled>Loading...</LoadingMessageStyled>;
 
   const addCardToBoard = (selectedRowType: CardType) =>
     setCardsOnBoard((prevState) =>
@@ -26,8 +32,8 @@ export const Deck: FC<CardsOnBoardUpdater> = ({ setCardsOnBoard }) => {
                 {
                   name: `${Math.floor(Math.random() * 100)}`,
                   description: "card!",
-                  type: "close",
-                  points: Math.floor(Math.random() * 10)
+                  type: selectedRowType,
+                  points: Math.floor(Math.random() * 10) + 1
                 }
               ]
             }
@@ -36,30 +42,23 @@ export const Deck: FC<CardsOnBoardUpdater> = ({ setCardsOnBoard }) => {
     );
 
   return (
-    <div style={{ width: "100%" }}>
-      <button
-        style={{ marginTop: "20px", marginRight: "20px", padding: "10px" }}
-        onClick={() => addCardToBoard("close")}>
-        Add close fight card to the board
-      </button>
-      <button
-        style={{ marginTop: "20px", marginRight: "20px", padding: "10px" }}
-        onClick={() => addCardToBoard("range")}>
-        Add range card to the board
-      </button>
-      <button
-        style={{ marginTop: "20px", padding: "10px" }}
-        onClick={() => addCardToBoard("siege")}>
-        Add siege card to the board
-      </button>
+    <DeckStyled>
+      {CARD_TYPES.map((type) => (
+        <TemporaryButtonStyled key={uuidv4()} onClick={() => addCardToBoard(type)}>
+          Add {type} fight card to the board
+        </TemporaryButtonStyled>
+      ))}
 
+      {/*TODO: Create error component */}
+      {/*TODO: Firstly i create branch for creating an error component; Then branch for publishing changes about card transferring*/}
       <h3>{error}</h3>
-      <h2>Deck</h2>
+      <TitleStyled>Your Deck</TitleStyled>
       <CardRow type="deck">
         {cardsInDeck.map(({ name, description, type, points }) => (
+          // TODO: OnClick should transfer card to the board and remove from the deck
           <Card name={name} description={description} type={type} points={points} key={uuidv4()} />
         ))}
       </CardRow>
-    </div>
+    </DeckStyled>
   );
 };
