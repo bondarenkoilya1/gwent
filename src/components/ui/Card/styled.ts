@@ -4,21 +4,22 @@ export const CardStyled = styled.li`
   background-color: #fff;
   border: 2px solid #000;
   border-radius: 12px;
-  padding: 10px;
-  width: 200px;
-  height: 250px;
+  padding: 4px;
+  width: 75px;
+  height: 100px;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
   text-align: center;
   position: relative;
+  user-select: none;
+  cursor: pointer;
 `;
 
 export const CardNameStyled = styled.h3`
-  margin-bottom: 20px;
-  font-weight: 700;
-  font-size: 28px;
+  font-weight: 400;
+  font-size: 10px;
 `;
 
 export const CardDescriptionStyled = styled.p`

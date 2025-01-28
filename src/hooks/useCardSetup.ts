@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
 
 import { CARDS_IN_DECK } from "../constants";
 import { CardProps } from "../types";
@@ -18,6 +19,7 @@ export const useCardSetup = (fullDeckName: string, fullDeckCardsQuantity: number
     try {
       const response = await axios.get<CardProps[]>(fullDeckName);
       const fetchedCards = response.data;
+      const fetchedCardsWithIdProp = fetchedCards.map((card) => ({ ...card, id: uuidv4() }));
 
       const arrayOfUniqueNumbers = pickUniqueRandomNumbers(
         // When I decide to change the number of cards in player's deck I do it only in one place
@@ -25,8 +27,8 @@ export const useCardSetup = (fullDeckName: string, fullDeckCardsQuantity: number
         fullDeckCardsQuantity
       );
 
-      const selectedCards = arrayOfUniqueNumbers.map((index) => fetchedCards[index]);
-      const remainingCards = fetchedCards.filter(
+      const selectedCards = arrayOfUniqueNumbers.map((index) => fetchedCardsWithIdProp[index]);
+      const remainingCards = fetchedCardsWithIdProp.filter(
         (_, index) => !arrayOfUniqueNumbers.includes(index)
       );
 
@@ -44,5 +46,5 @@ export const useCardSetup = (fullDeckName: string, fullDeckCardsQuantity: number
     fetchAndSetCards();
   }, []);
 
-  return { availableCards, cardsInDeck, loading, error, refetch: fetchAndSetCards };
+  return { availableCards, cardsInDeck, setCardsInDeck, loading, error, refetch: fetchAndSetCards };
 };
