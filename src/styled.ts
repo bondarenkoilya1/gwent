@@ -12,10 +12,15 @@ export const GlobalStyle = css`
   html {
     box-sizing: border-box;
     background:
-      linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
       url(${woodImage}) center/cover no-repeat;
     height: 100%;
     width: 100%;
+  }
+
+  body,
+  #root {
+    height: 100%;
   }
 
   *,
