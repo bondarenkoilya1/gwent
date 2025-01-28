@@ -2,8 +2,8 @@ import { FC } from "react";
 
 import { CardRowStyled } from "./styled";
 
-import { Children } from "../../../types";
+import { CardRowProps } from "../../../types";
 
-export const CardRow: FC<Children> = ({ children }) => {
-  return <CardRowStyled>{children}</CardRowStyled>;
+export const CardRow: FC<CardRowProps> = ({ children, type }) => {
+  return <CardRowStyled type={type}>{children}</CardRowStyled>;
 };

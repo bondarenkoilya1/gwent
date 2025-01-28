@@ -18,7 +18,7 @@ export const Deck = () => {
     <div style={{ width: "100%" }}>
       <h3>{error}</h3>
       <h2>Deck</h2>
-      <CardRow>
+      <CardRow type="deck">
         {cardsInDeck.map(({ name, description, type, points }) => (
           <Card name={name} description={description} type={type} points={points} key={uuidv4()} />
         ))}

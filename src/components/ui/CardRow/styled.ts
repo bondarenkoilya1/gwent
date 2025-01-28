@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
 
-export const CardRowStyled = styled.ul`
+import { RowType } from "../../../types";
+
+export const CardRowStyled = styled.ul<{ type: RowType }>`
   display: flex;
   justify-content: space-between;
   border: 2px solid #fff;
