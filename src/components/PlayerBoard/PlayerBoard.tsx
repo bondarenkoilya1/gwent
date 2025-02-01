@@ -1,13 +1,18 @@
 import { FC, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-import { CardRowStyles, PlayerBoardStyled } from "./styled.ts";
+import { CardRowStyles, PlayerBoardStyled } from "./styled";
 
 import { CARD_TYPES } from "../../constants";
 import { CardProps, CardsOnBoardArray, CardType } from "../../types";
+import { saveCurrentScore } from "../../utils";
 import { Card, CardRow } from "../ui";
 
-export const PlayerBoard: FC<CardsOnBoardArray> = ({ cardsOnBoard, setCurrentScore }) => {
+export const PlayerBoard: FC<CardsOnBoardArray> = ({
+  cardsOnBoard,
+  currentScore,
+  setCurrentScore
+}) => {
   const getCardPoints = (card: CardProps) => Number(card.points) || 0;
 
   useEffect(() => {
@@ -16,6 +21,8 @@ export const PlayerBoard: FC<CardsOnBoardArray> = ({ cardsOnBoard, setCurrentSco
 
     setCurrentScore((prevScore) => (prevScore !== currentScore ? currentScore : prevScore));
   }, [cardsOnBoard, setCurrentScore]);
+
+  saveCurrentScore(currentScore);
 
   const renderRowsByCardTypes = () =>
     CARD_TYPES.map((type: CardType, index) => (
