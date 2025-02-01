@@ -8,7 +8,7 @@ export const ContainerStyles: React.CSSProperties = {
   flexDirection: "column"
 };
 
-export const DeckStyles = css`
+export const HandStyles = css`
   margin-top: auto;
   margin-bottom: 5%;
 `;

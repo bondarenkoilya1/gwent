@@ -2,7 +2,7 @@ import { Children, CSS } from "../../global";
 
 import { CardType } from "./Card";
 
-export type RowType = CardType | "deck";
+export type RowType = CardType | "hand";
 
 export type CardRowProps = Children & {
   type: RowType;

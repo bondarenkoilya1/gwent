@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 
-import { CARDS_IN_DECK } from "../constants";
+import { CARDS_IN_HAND } from "../constants";
 import { CardProps } from "../types";
 import { pickUniqueRandomNumbers, validateError } from "../utils";
 
-export const useCardSetup = (fullDeckName: string, fullDeckCardsQuantity: number) => {
+export const useCardSetup = (fullHandName: string, fullHandCardsQuantity: number) => {
   const [availableCards, setAvailableCards] = useState<CardProps[]>([]);
-  const [cardsInDeck, setCardsInDeck] = useState<CardProps[]>([]);
+  const [cardsInHand, setCardsInHand] = useState<CardProps[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -17,14 +17,14 @@ export const useCardSetup = (fullDeckName: string, fullDeckCardsQuantity: number
     setError(null);
 
     try {
-      const response = await axios.get<CardProps[]>(fullDeckName);
+      const response = await axios.get<CardProps[]>(fullHandName);
       const fetchedCards = response.data;
       const fetchedCardsWithIdProp = fetchedCards.map((card) => ({ ...card, id: uuidv4() }));
 
       const arrayOfUniqueNumbers = pickUniqueRandomNumbers(
-        // When I decide to change the number of cards in player's deck I do it only in one place
-        CARDS_IN_DECK,
-        fullDeckCardsQuantity
+        // When I decide to change the number of cards in player's hand I do it only in one place
+        CARDS_IN_HAND,
+        fullHandCardsQuantity
       );
 
       const selectedCards = arrayOfUniqueNumbers.map((index) => fetchedCardsWithIdProp[index]);
@@ -33,7 +33,7 @@ export const useCardSetup = (fullDeckName: string, fullDeckCardsQuantity: number
       );
 
       setAvailableCards(remainingCards);
-      setCardsInDeck(selectedCards);
+      setCardsInHand(selectedCards);
     } catch (error) {
       setError(validateError(error));
       console.error(error);
@@ -46,5 +46,5 @@ export const useCardSetup = (fullDeckName: string, fullDeckCardsQuantity: number
     fetchAndSetCards();
   }, []);
 
-  return { availableCards, cardsInDeck, setCardsInDeck, loading, error, refetch: fetchAndSetCards };
+  return { availableCards, cardsInHand, setCardsInHand, loading, error, refetch: fetchAndSetCards };
 };
