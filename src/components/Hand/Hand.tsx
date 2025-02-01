@@ -42,7 +42,7 @@ export const Hand: FC<CardsOnBoardUpdater> = ({ outsideStyles, setCardsOnBoard, 
   return (
     <HandStyled css={outsideStyles}>
       {error && <Error unspecifiedErrorMessage={error} />}
-      <div style={{ color: "#fff" }}>Score: {currentScore}</div>
+      <div>Score: {currentScore}</div>
 
       <TitleStyled>Your Hand</TitleStyled>
       <CardRow type="hand">
