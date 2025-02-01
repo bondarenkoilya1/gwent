@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import { ContainerStyled } from "../../styled";
+import { ContainerStyles, DeckStyles } from "./styled";
 
 import { Deck, PlayerBoard } from "../../components";
 import { RowProps } from "../../types";
@@ -11,13 +12,16 @@ export const Main = () => {
     { type: "range", cards: [] },
     { type: "siege", cards: [] }
   ]);
+  const [currentScore, setCurrentScore] = useState(0);
 
   return (
-    <ContainerStyled style={{ height: "100%", display: "flex", flexDirection: "column" }}>
-      <PlayerBoard cardsOnBoard={cardsOnBoard} />
-      <div style={{ marginTop: "auto", marginBottom: "5%" }}>
-        <Deck setCardsOnBoard={setCardsOnBoard} />
-      </div>
+    <ContainerStyled style={ContainerStyles}>
+      <PlayerBoard cardsOnBoard={cardsOnBoard} setCurrentScore={setCurrentScore} />
+      <Deck
+        outsideStyles={DeckStyles}
+        setCardsOnBoard={setCardsOnBoard}
+        currentScore={currentScore}
+      />
     </ContainerStyled>
   );
 };
