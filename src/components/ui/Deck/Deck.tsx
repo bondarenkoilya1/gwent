@@ -10,7 +10,7 @@ import { Card } from "../Card";
 import { CardRow } from "../CardRow";
 import { Error } from "../Error";
 
-export const Deck: FC<CardsOnBoardUpdater> = ({ setCardsOnBoard }) => {
+export const Deck: FC<CardsOnBoardUpdater> = ({ outsideStyles, setCardsOnBoard, currentScore }) => {
   const { cardsInDeck, setCardsInDeck, loading, error } = useCardSetup(
     NORTHERN_REALMS_CARDS_ARRAY,
     NORTHERN_REALMS_CARDS_QUANTITY
@@ -42,8 +42,9 @@ export const Deck: FC<CardsOnBoardUpdater> = ({ setCardsOnBoard }) => {
   };
 
   return (
-    <DeckStyled>
+    <DeckStyled css={outsideStyles}>
       {error && <Error unspecifiedErrorMessage={error} />}
+      <div style={{ color: "#fff" }}>Score: {currentScore}</div>
 
       <TitleStyled>Your Deck</TitleStyled>
       <CardRow type="deck">

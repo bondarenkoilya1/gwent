@@ -1,1 +1,1 @@
-export * from "./useCardSetup.ts";
+export * from "./useCardSetup";
