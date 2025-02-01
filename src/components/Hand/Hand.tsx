@@ -1,14 +1,12 @@
 import { FC } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-import { HandStyled, LoadingMessageStyled, TitleStyled } from "./styled";
+import { HandStyled, LoadingMessageStyled, TitleStyled } from "./styled.ts";
 
-import { NORTHERN_REALMS_CARDS_ARRAY, NORTHERN_REALMS_CARDS_QUANTITY } from "../../../constants";
-import { useCardSetup } from "../../../hooks";
-import { CardProps, CardsOnBoardUpdater } from "../../../types";
-import { Card } from "../Card";
-import { CardRow } from "../CardRow";
-import { Error } from "../Error";
+import { NORTHERN_REALMS_CARDS_ARRAY, NORTHERN_REALMS_CARDS_QUANTITY } from "../../constants";
+import { useCardSetup } from "../../hooks";
+import { CardProps, CardsOnBoardUpdater } from "../../types";
+import { Card, CardRow, Error } from "../ui";
 
 export const Hand: FC<CardsOnBoardUpdater> = ({ outsideStyles, setCardsOnBoard, currentScore }) => {
   const { cardsInHand, setCardsInHand, loading, error } = useCardSetup(
