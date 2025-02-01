@@ -1,12 +1,11 @@
 import { FC, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-import { CardRowStyles, PlayerBoardStyled } from "./styled";
+import { CardRowStyles, PlayerBoardStyled } from "./styled.ts";
 
-import { CARD_TYPES } from "../../../constants";
-import { CardProps, CardsOnBoardArray, CardType } from "../../../types";
-import { Card } from "../Card";
-import { CardRow } from "../CardRow";
+import { CARD_TYPES } from "../../constants";
+import { CardProps, CardsOnBoardArray, CardType } from "../../types";
+import { Card, CardRow } from "../ui";
 
 export const PlayerBoard: FC<CardsOnBoardArray> = ({ cardsOnBoard, setCurrentScore }) => {
   const getCardPoints = (card: CardProps) => Number(card.points) || 0;
