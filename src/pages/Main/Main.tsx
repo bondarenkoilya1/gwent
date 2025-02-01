@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 import { ContainerStyled } from "../../styled";
-import { ContainerStyles, DeckStyles } from "./styled";
+import { ContainerStyles, HandStyles } from "./styled";
 
-import { Deck, PlayerBoard } from "../../components";
+import { Hand, PlayerBoard } from "../../components";
 import { RowProps } from "../../types";
 
 export const Main = () => {
@@ -17,8 +17,8 @@ export const Main = () => {
   return (
     <ContainerStyled style={ContainerStyles}>
       <PlayerBoard cardsOnBoard={cardsOnBoard} setCurrentScore={setCurrentScore} />
-      <Deck
-        outsideStyles={DeckStyles}
+      <Hand
+        outsideStyles={HandStyles}
         setCardsOnBoard={setCardsOnBoard}
         currentScore={currentScore}
       />

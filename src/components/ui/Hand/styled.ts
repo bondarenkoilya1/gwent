@@ -5,7 +5,7 @@ export const LoadingMessageStyled = styled.p`
   color: #fff;
 `;
 
-export const DeckStyled = styled.div`
+export const HandStyled = styled.div`
   width: 100%;
 `;
 
