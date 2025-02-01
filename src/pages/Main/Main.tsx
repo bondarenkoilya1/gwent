@@ -16,7 +16,11 @@ export const Main = () => {
 
   return (
     <ContainerStyled style={ContainerStyles}>
-      <PlayerBoard cardsOnBoard={cardsOnBoard} setCurrentScore={setCurrentScore} />
+      <PlayerBoard
+        cardsOnBoard={cardsOnBoard}
+        currentScore={currentScore}
+        setCurrentScore={setCurrentScore}
+      />
       <Hand
         outsideStyles={HandStyles}
         setCardsOnBoard={setCardsOnBoard}

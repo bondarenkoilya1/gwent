@@ -11,6 +11,7 @@ export type RowProps = {
 
 export type CardsOnBoardArray = {
   cardsOnBoard: RowProps[];
+  currentScore: number;
   setCurrentScore: React.Dispatch<React.SetStateAction<number>>;
 };
 
