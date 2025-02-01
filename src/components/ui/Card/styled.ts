@@ -19,7 +19,8 @@ export const CardStyled = styled.li`
 
 export const CardNameStyled = styled.h3`
   font-weight: 400;
-  font-size: 10px;
+  font-size: 12px;
+  color: #000;
 `;
 
 export const CardDescriptionStyled = styled.p`

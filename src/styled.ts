@@ -4,18 +4,14 @@ import { css } from "@emotion/react";
 
 import styled from "@emotion/styled";
 
-import woodImage from "./assets/photos/wood.jpg";
-
 export const GlobalStyle = css`
   ${emotionReset}
 
   html {
     box-sizing: border-box;
-    background:
-      linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url(${woodImage}) center/cover no-repeat;
     height: 100%;
     width: 100%;
+    background-color: #3a3434;
   }
 
   body,
@@ -33,6 +29,7 @@ export const GlobalStyle = css`
 
   #root {
     font-family: "Arial", sans-serif;
+    color: #fff;
   }
 
   a {
