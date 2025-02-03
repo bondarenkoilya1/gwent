@@ -6,7 +6,7 @@ import { CARDS_IN_HAND } from "../constants";
 import { CardProps } from "../types";
 import { pickUniqueRandomNumbers, validateError } from "../utils";
 
-export const useCardSetup = (fullHandName: string, fullHandCardsQuantity: number) => {
+export const useCardSetup = (fullHandName: string) => {
   const [availableCards, setAvailableCards] = useState<CardProps[]>([]);
   const [cardsInHand, setCardsInHand] = useState<CardProps[]>([]);
   const [loading, setLoading] = useState(false);
@@ -19,6 +19,8 @@ export const useCardSetup = (fullHandName: string, fullHandCardsQuantity: number
     try {
       const response = await axios.get<CardProps[]>(fullHandName);
       const fetchedCards = response.data;
+      // Comeback here later, when I will combine defaults cards sets with a special ones
+      const fullHandCardsQuantity = fetchedCards.length;
       const fetchedCardsWithIdProp = fetchedCards.map((card) => ({ ...card, id: uuidv4() }));
 
       const arrayOfUniqueNumbers = pickUniqueRandomNumbers(
