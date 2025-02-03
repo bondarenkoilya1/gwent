@@ -82,5 +82,12 @@
     "description": "A fierce dwarf fighter",
     "type": "range",
     "points": 4
+  },
+  {
+    "name": "Multiplier",
+    "description": "Multiplier",
+    "type": "close",
+    "speciality": "multiplier",
+    "points": 1
   }
 ]
