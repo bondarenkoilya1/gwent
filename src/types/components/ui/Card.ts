@@ -10,4 +10,5 @@ export type CardProps = {
   speciality?: Speciality;
   points?: number;
   onClick?: () => void;
+  multiplied?: boolean;
 };

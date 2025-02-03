@@ -3,25 +3,25 @@ import { FC } from "react";
 import {
   // CardDescriptionStyled,
   CardNameStyled,
-  // CardPointsStyled,
-  CardStyled
-  // CardTextHighlighted,
-  // CardTypeStyled
+  CardPointsStyled,
+  CardStyled,
+  CardTextHighlighted,
+  CardTypeStyled
 } from "./styled";
 
 import { CardProps } from "../../../types";
 
-export const Card: FC<CardProps> = ({ name, onClick }) => {
+export const Card: FC<CardProps> = ({ name, onClick, points, type }) => {
   return (
     <CardStyled onClick={onClick}>
       <CardNameStyled>{name}</CardNameStyled>
       {/*<CardDescriptionStyled>{description}</CardDescriptionStyled>*/}
-      {/*<CardTypeStyled>*/}
-      {/*  Type: <CardTextHighlighted>{type}</CardTextHighlighted>*/}
-      {/*</CardTypeStyled>*/}
-      {/*<CardPointsStyled>*/}
-      {/*  Points: <CardTextHighlighted> {points}</CardTextHighlighted>*/}
-      {/*</CardPointsStyled>*/}
+      <CardTypeStyled>
+        <CardTextHighlighted>{type}</CardTextHighlighted>
+      </CardTypeStyled>
+      <CardPointsStyled>
+        <CardTextHighlighted> {points}</CardTextHighlighted>
+      </CardPointsStyled>
     </CardStyled>
   );
 };

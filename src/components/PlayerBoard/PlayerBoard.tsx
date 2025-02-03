@@ -13,12 +13,29 @@ export const PlayerBoard: FC<CardsOnBoardArray> = ({
   currentScore,
   setCurrentScore
 }) => {
-  const getCardPoints = (card: CardProps) => Number(card.points) || 0;
-
   useEffect(() => {
     const allCards: CardProps[] = cardsOnBoard.flatMap((row) => row.cards);
-    const currentScore = allCards.reduce((total, card) => total + getCardPoints(card), 0);
 
+    //
+    const multiplierCard = allCards.find((card: CardProps) => card.speciality === "multiplier");
+    const hasMultiplierCard = allCards.some((card: CardProps) => card.speciality === "multiplier");
+
+    if (hasMultiplierCard) {
+      const cardsInRowWithMultiplierCard = allCards.filter(
+        (item) => item.type === multiplierCard.type
+      );
+
+      cardsInRowWithMultiplierCard.forEach((card) => {
+        if (!card.multiplied) {
+          if (card.points) card.points *= 2;
+          card.multiplied = true;
+        }
+      });
+    }
+    //
+
+    const getCardPoints = (card: CardProps) => Number(card.points) || 0;
+    const currentScore = allCards.reduce((total, card) => total + getCardPoints(card), 0);
     setCurrentScore((prevScore) => (prevScore !== currentScore ? currentScore : prevScore));
   }, [cardsOnBoard, setCurrentScore]);
 
