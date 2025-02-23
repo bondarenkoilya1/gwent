@@ -4,9 +4,14 @@ import { ButtonStyled } from "./styled";
 
 import { ButtonProps } from "../../../types";
 
-export const Button: FC<ButtonProps> = ({ children, type = "button", variant = "primary" }) => {
+export const Button: FC<ButtonProps> = ({
+  className,
+  children,
+  type = "button",
+  variant = "primary"
+}) => {
   return (
-    <ButtonStyled type={type} variant={variant}>
+    <ButtonStyled className={className} type={type} variant={variant}>
       {children}
     </ButtonStyled>
   );
