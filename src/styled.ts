@@ -28,8 +28,9 @@ export const GlobalStyle = css`
   }
 
   #root {
-    font-family: "Arial", sans-serif;
+    font-family: "Inter", sans-serif;
     color: #fff;
+    background-color: #fff;
   }
 
   a {
@@ -39,6 +40,6 @@ export const GlobalStyle = css`
 `;
 
 export const ContainerStyled = styled.div`
-  max-width: 1410px;
+  max-width: 1620px;
   margin: 0 auto;
 `;
