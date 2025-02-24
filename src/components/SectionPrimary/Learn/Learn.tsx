@@ -1,14 +1,7 @@
-import {
-  LearnButtonStyles,
-  LearnDescriptionStyled,
-  LearnImageStyled,
-  LearnStyled,
-  LearnTitleStyled
-} from "./styled";
-
-import youngManPhoto from "../../../assets/photos/sectionPrimary/young-man.png";
-import { Button } from "../../ui";
+import { LearnButtonStyles, LearnDescriptionStyled, LearnStyled, LearnTitleStyled } from "./styled";
 import styled from "@emotion/styled";
+
+import { Button } from "../../ui";
 
 const ButtonStyled = styled(Button)(LearnButtonStyles);
 
@@ -19,7 +12,6 @@ export const Learn = () => {
       <LearnDescriptionStyled>
         Узнай свой уровень, начав с легких ботов. Познай эту игру и составь конкуренцию старикам
       </LearnDescriptionStyled>
-      <LearnImageStyled src={youngManPhoto} alt="Young Man with zero knowledge" />
       <ButtonStyled>Выбрать колоду</ButtonStyled>
     </LearnStyled>
   );

@@ -2,15 +2,19 @@ import { css } from "@emotion/react";
 
 import styled from "@emotion/styled";
 
+import youngManPhoto from "../../../assets/photos/sectionPrimary/young-man.png";
+
 // todo: bring color to the global color group: #146EE4, #f21e1e
 
+// todo: maybe export to global styles
 export const LearnStyled = styled.div`
   width: 50%;
   border: 1px dashed #000; // todo: remove
-  position: relative;
   overflow: hidden;
   height: 539px;
   padding-top: 100px;
+  background: url(${youngManPhoto}) no-repeat center right -100%;
+  background-size: contain;
 `;
 
 export const LearnTitleStyled = styled.h2`
@@ -28,15 +32,6 @@ export const LearnDescriptionStyled = styled.p`
   max-width: 555px;
   text-align: center;
   margin: 20px auto 0 auto;
-`;
-
-export const LearnImageStyled = styled.img`
-  position: absolute;
-  top: 0;
-  //right: -50%;
-  right: -33%;
-  width: 539px;
-  height: auto;
 `;
 
 export const LearnButtonStyles = css`
