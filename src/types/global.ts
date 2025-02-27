@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 
 import { CSSObject } from "@emotion/react";
 
@@ -7,3 +7,5 @@ export type Children = {
 };
 
 export type CSS = CSSObject;
+
+export type JSXElement = React.JSX.Element;
