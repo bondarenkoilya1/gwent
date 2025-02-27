@@ -3,3 +3,4 @@ export * from "./PlayerBoard";
 export * from "./CardRow";
 export * from "./Error";
 export * from "./Button";
+export * from "./Image";
