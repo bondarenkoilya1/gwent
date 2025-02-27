@@ -2,9 +2,10 @@ import { FC } from "react";
 
 import { ButtonStyled } from "./styled";
 
-import { ButtonProps } from "../../../types";
+import { ButtonProps, JSXElement } from "../../../types";
 
 // TODO: Create theme for colors with emotion
+// ! Probably the task is not so complicated to create new files. I guess I'll do this logic in one file for now
 
 export const Button: FC<ButtonProps> = ({
   className,
@@ -13,18 +14,17 @@ export const Button: FC<ButtonProps> = ({
   variant = "primary",
   hasIcon
 }) => {
-  switch (hasIcon) {
-    case "onLeft":
-      return 1;
-    case "onRight":
-      return 2;
-    default:
-      return (
-        <ButtonStyled className={className} type={type} variant={variant}>
-          {children}
-        </ButtonStyled>
-      );
-  }
+  return (
+    <ButtonStyled className={className} type={type} variant={variant}>
+      {hasIcon == "onLeft" && renderLeftIcon()}
+      {children}
+    </ButtonStyled>
+  );
 };
+
+// I declare functions like this to be able to call them above
+function renderLeftIcon(): JSXElement {
+  return <div />;
+}
 
 // todo: on lint i need to find all .styled.*ts* imports and remove ,ts
