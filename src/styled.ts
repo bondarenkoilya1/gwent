@@ -31,6 +31,8 @@ export const GlobalStyle = css`
     font-family: "Inter", sans-serif;
     color: #fff;
     background-color: #fff;
+    //  temporary until it bothers
+    overflow: hidden;
   }
 
   a {
