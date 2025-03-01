@@ -9,9 +9,10 @@ export const Dominate = () => {
   return (
     <DominateStyled>
       <DominateContainerStyled>
-        <DominateTitleStyled>Доминируй</DominateTitleStyled>
+        <DominateTitleStyled>Dominate</DominateTitleStyled>
         <DominateDescriptionStyled>
-          Сразись с сильнейшими. <br /> Попробуй продержаться в топ-10 хотябы два дня
+          Face the strongest. <br />
+          Try to stay in the top 10 for at least two days!
         </DominateDescriptionStyled>
       </DominateContainerStyled>
     </DominateStyled>
