@@ -46,4 +46,21 @@ export const LearnButtonStyles = css`
   margin: 60px auto 0 auto;
   display: flex;
   justify-content: center;
+
+  transition: all 0.3s ease-in-out;
+
+  & svg {
+    transition: all 0.3s ease-in-out;
+  }
+
+  &:hover {
+    transition: all 0.3s ease-in-out;
+    border-color: #d62121;
+    color: #d62121;
+
+    & svg {
+      transition: all 0.3s ease-in-out;
+      color: #d62121;
+    }
+  }
 `;
