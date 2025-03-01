@@ -11,14 +11,14 @@ const ButtonStyled = styled(Button)(LearnButtonStyles);
 export const Learn = () => {
   return (
     <LearnStyled>
-      <LearnTitleStyled>Обучись</LearnTitleStyled>
+      <LearnTitleStyled>Train</LearnTitleStyled>
       <LearnDescriptionStyled>
-        Узнай свой уровень, начав с легких ботов. <br /> Познай эту игру и составь конкуренцию
-        старикам
+        Discover your skill level by starting with easy bots. <br />
+        Master the game and challenge the veterans!
       </LearnDescriptionStyled>
       <Link to="/game">
         <ButtonStyled hasIcon="onLeft" icon={LightningIcon}>
-          Выбрать колоду
+          Choose your card set
         </ButtonStyled>
       </Link>
     </LearnStyled>
