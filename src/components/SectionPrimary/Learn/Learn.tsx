@@ -1,3 +1,5 @@
+import { BsFillLightningChargeFill as LightningIcon } from "react-icons/bs";
+
 import { LearnButtonStyles, LearnDescriptionStyled, LearnStyled, LearnTitleStyled } from "./styled";
 import styled from "@emotion/styled";
 
@@ -12,7 +14,9 @@ export const Learn = () => {
       <LearnDescriptionStyled>
         Узнай свой уровень, начав с легких ботов. Познай эту игру и составь конкуренцию старикам
       </LearnDescriptionStyled>
-      <ButtonStyled>Выбрать колоду</ButtonStyled>
+      <ButtonStyled hasIcon="onLeft" icon={LightningIcon}>
+        Выбрать колоду
+      </ButtonStyled>
     </LearnStyled>
   );
 };

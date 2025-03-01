@@ -1,6 +1,7 @@
 import { FC } from "react";
+import { IconType } from "react-icons";
 
-import { ButtonStyled } from "./styled";
+import { ButtonStyled, LeftIconStyled } from "./styled";
 
 import { ButtonProps, JSXElement } from "../../../types";
 
@@ -12,19 +13,26 @@ export const Button: FC<ButtonProps> = ({
   children,
   type = "button",
   variant = "primary",
-  hasIcon
+  hasIcon,
+  icon
 }) => {
   return (
     <ButtonStyled className={className} type={type} variant={variant}>
-      {hasIcon == "onLeft" && renderLeftIcon()}
+      {hasIcon == "onLeft" && icon && renderLeftIcon(icon)}
       {children}
     </ButtonStyled>
   );
 };
 
 // I declare functions like this to be able to call them above
-function renderLeftIcon(): JSXElement {
-  return <div />;
+function renderLeftIcon(icon: IconType): JSXElement {
+  const Icon = icon;
+
+  return (
+    <LeftIconStyled>
+      <Icon />
+    </LeftIconStyled>
+  );
 }
 
 // todo: on lint i need to find all .styled.*ts* imports and remove ,ts
