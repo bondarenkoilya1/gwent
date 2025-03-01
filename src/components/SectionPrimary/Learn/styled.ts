@@ -9,12 +9,12 @@ import youngManPhoto from "../../../assets/photos/sectionPrimary/young-man.png";
 // todo: maybe export to global styles
 export const LearnStyled = styled.div`
   width: 50%;
-  border: 1px dashed #000; // todo: remove
+  height: 100%;
   overflow: hidden;
-  height: 539px;
   padding-top: 100px;
-  background: url(${youngManPhoto}) no-repeat center right -100%;
+  background: url(${youngManPhoto}) no-repeat center right -460px;
   background-size: contain;
+  border-right: 3px solid #000;
 `;
 
 export const LearnTitleStyled = styled.h2`
@@ -29,7 +29,6 @@ export const LearnTitleStyled = styled.h2`
 export const LearnDescriptionStyled = styled.p`
   color: #494444;
   font-size: 24px;
-  max-width: 555px;
   text-align: center;
   margin: 20px auto 0 auto;
 `;

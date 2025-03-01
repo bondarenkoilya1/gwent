@@ -1,14 +1,24 @@
-import { ContainerStyled } from "../../styled";
-
 import { SectionPrimary } from "../../components";
 
 export const Main = () => {
   return (
-    <ContainerStyled>
+    <>
+      <div
+        style={{
+          height: "100px",
+          color: "#000",
+          textAlign: "center",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          fontWeight: 700,
+          fontSize: "62px",
+          borderBottom: "2px solid #000"
+        }}>
+        CARD GAME
+      </div>
       <SectionPrimary />
-      {/*<h1 style={{ fontSize: "36px" }}>Main page</h1>*/}
-      {/*<Link to="/game">Play</Link>*/}
-      {/*<Button>Some button</Button>*/}
-    </ContainerStyled>
+    </>
   );
 };
