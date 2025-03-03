@@ -19,7 +19,7 @@ export const useCardSetup = (fullHandName: string) => {
     try {
       const response = await axios.get<CardProps[]>(fullHandName);
       const fetchedCards = response.data;
-      // Comeback here later, when I will combine defaults cards sets with a special ones
+      // Comeback here later, when I will combine default card sets with a special ones
       const fullHandCardsQuantity = fetchedCards.length;
       const fetchedCardsWithIdProp = fetchedCards.map((card) => ({ ...card, id: uuidv4() }));
 
