@@ -1,4 +1,4 @@
-import { css } from "@emotion/react";
+import { css, Theme } from "@emotion/react";
 
 import styled from "@emotion/styled";
 
@@ -18,7 +18,7 @@ export const LearnStyled = styled.div`
 `;
 
 export const LearnTitleStyled = styled.h2`
-  color: #146ee4;
+  color: ${({ theme }) => theme.colors.blue["400"]};
   font-size: 102px;
   font-weight: 700;
   margin: 0 auto;
@@ -33,12 +33,12 @@ export const LearnDescriptionStyled = styled.p`
   margin: 20px auto 0 auto;
 `;
 
-export const LearnButtonStyles = css`
-  border: 4px solid #f21e1e;
+export const LearnButtonStyles = (props: { theme: Theme }) => css`
+  border: 4px solid ${props.theme.colors.red["400"]};
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   text-transform: uppercase;
   padding: 20px;
-  color: #f21e1e;
+  color: ${props.theme.colors.red["400"]};
   font-size: 24px;
   font-weight: 600;
   border-radius: 0;
@@ -54,12 +54,12 @@ export const LearnButtonStyles = css`
 
   &:hover {
     transition: all 0.3s ease-in-out;
-    border-color: #d62121;
-    color: #d62121;
+    border-color: ${props.theme.colors.red["700"]};
+    color: ${props.theme.colors.red["700"]};
 
     & svg {
       transition: all 0.3s ease-in-out;
-      color: #d62121;
+      color: ${props.theme.colors.red["700"]};
     }
   }
 `;
