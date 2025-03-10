@@ -17,7 +17,7 @@ export const DominateContainerStyled = styled.div`
 `;
 
 export const DominateTitleStyled = styled.h2`
-  color: #f21e1e;
+  color: ${({ theme }) => theme.colors.red["400"]};
   font-size: 102px;
   font-weight: 700;
   margin: 0 auto;
