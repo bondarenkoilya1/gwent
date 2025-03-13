@@ -1,9 +1,13 @@
+import { FC } from "react";
+
+import { CardProps, CardSetAnotherProps } from "../../types";
+
 import { Card } from "./Card";
 import { CardList } from "./CardList";
 
 // zustand for deleteCardSet
 
-export const CardSet = ({ set, deleteCardSet }: { set: any; deleteCardSet: any }) => {
+export const CardSet: FC<CardSetAnotherProps> = ({ set, deleteCardSet }) => {
   return (
     <div style={{ marginBottom: "30px" }}>
       <li style={{ fontSize: "24px", marginBottom: "10px" }}>
@@ -20,8 +24,8 @@ export const CardSet = ({ set, deleteCardSet }: { set: any; deleteCardSet: any }
         </span>
       </li>
       <CardList>
-        {set.cards.map((card: any) => (
-          <Card card={card} />
+        {set.cards.map((card: CardProps) => (
+          <Card card={card} key={card._id} />
         ))}
       </CardList>
     </div>

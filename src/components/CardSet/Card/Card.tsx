@@ -1,3 +1,5 @@
+import { FC } from "react";
+
 import {
   CardPointsStyled,
   CardPropertiesStyled,
@@ -6,7 +8,9 @@ import {
   CardTypeStyled
 } from "./styled";
 
-export const Card = ({ card }: { card: any }) => {
+import { CardAnotherProps } from "../../../types";
+
+export const Card: FC<CardAnotherProps> = ({ card }) => {
   const { name, type, points } = card;
 
   return (

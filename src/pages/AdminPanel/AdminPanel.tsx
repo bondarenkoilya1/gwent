@@ -12,13 +12,14 @@ import styled from "@emotion/styled";
 import { Button } from "../../components";
 import { CardSet } from "../../components/CardSet";
 import { deleteItem, get } from "../../http";
+import { CardSetProps, CardSets } from "../../types";
 
 // In future this will be brought out to different components
 
 const AdminPanelButtonStyled = styled(Button)(AdminPanelButtonStyles);
 
 export const AdminPanel = () => {
-  const [cardSets, setCardSets] = useState([]);
+  const [cardSets, setCardSets] = useState<CardSets>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -27,10 +28,15 @@ export const AdminPanel = () => {
     setError(null);
 
     try {
-      const sets: any = await get("/card-sets");
+      const sets: CardSets = await get("/card-sets");
       setCardSets((prev) => (JSON.stringify(prev) === JSON.stringify(sets) ? prev : sets));
-    } catch (error: any) {
-      setError(error.message);
+    } catch (error) {
+      // todo: bring out. DRY
+      if (error instanceof Error) {
+        setError(error.message);
+      }
+
+      setError("Unexpected error, please try again later");
     } finally {
       setIsLoading(false);
     }
@@ -43,8 +49,12 @@ export const AdminPanel = () => {
     try {
       await deleteItem("/card-set", `/${cardSetId}`);
       await fetchCardSets();
-    } catch (error: any) {
-      setError(error.message);
+    } catch (error) {
+      if (error instanceof Error) {
+        setError(error.message);
+      }
+
+      setError("Unexpected error, please try again later");
     } finally {
       setIsLoading(false);
     }
@@ -54,9 +64,10 @@ export const AdminPanel = () => {
     fetchCardSets();
   }, [cardSets]);
 
-  const renderError: any = (error: any) =>
+  const renderError = (error: string | null) =>
     error && <AdminPanelErrorStyled>Error occurred. {error}</AdminPanelErrorStyled>;
 
+  // @ts-ignore
   return (
     <AdminPanelStyled>
       <AdminPanelTitleStyled>Admin panel</AdminPanelTitleStyled>
@@ -67,7 +78,9 @@ export const AdminPanel = () => {
       ) : (
         <AdminPanelCardSetsStyled>
           {cardSets &&
-            cardSets.map((set: any) => <CardSet set={set} deleteCardSet={deleteCardSet} />)}
+            cardSets.map((set: CardSetProps) => (
+              <CardSet set={set} deleteCardSet={deleteCardSet} key={set._id} />
+            ))}
         </AdminPanelCardSetsStyled>
       )}
     </AdminPanelStyled>
