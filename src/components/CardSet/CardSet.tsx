@@ -1,13 +1,13 @@
 import { FC } from "react";
 
-import { CardProps, CardSetAnotherProps } from "../../types";
+import { CardProps, CardSetWrapperProps } from "../../types";
 
 import { Card } from "./Card";
 import { CardList } from "./CardList";
 
 // zustand for deleteCardSet
 
-export const CardSet: FC<CardSetAnotherProps> = ({ set, deleteCardSet }) => {
+export const CardSet: FC<CardSetWrapperProps> = ({ set, deleteCardSet }) => {
   return (
     <div style={{ marginBottom: "30px" }}>
       <li style={{ fontSize: "24px", marginBottom: "10px" }}>
