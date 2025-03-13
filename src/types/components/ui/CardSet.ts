@@ -6,9 +6,8 @@ export type CardSetProps = {
   cards: CardProps[];
 };
 
-export type CardSetAnotherProps = {
+export type CardSetWrapperProps = {
   set: CardSetProps;
-  key: string;
   deleteCardSet: (cardId: string) => void;
 };
 

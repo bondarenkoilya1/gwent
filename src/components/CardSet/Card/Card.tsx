@@ -8,9 +8,9 @@ import {
   CardTypeStyled
 } from "./styled";
 
-import { CardAnotherProps } from "../../../types";
+import { CardWrapperProps } from "../../../types";
 
-export const Card: FC<CardAnotherProps> = ({ card }) => {
+export const Card: FC<CardWrapperProps> = ({ card }) => {
   const { name, type, points } = card;
 
   return (
