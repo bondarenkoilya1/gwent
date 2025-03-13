@@ -2,7 +2,7 @@ import { API_URL } from "../config";
 
 const baseUrl = API_URL;
 
-export async function del<T>(url: string, cardId: string): Promise<T> {
+export async function deleteItem<T>(url: string, cardId: string): Promise<T> {
   const response = await fetch(`${baseUrl}${url}${cardId}`, {
     method: "DELETE"
   });

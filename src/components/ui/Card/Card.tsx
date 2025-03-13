@@ -11,6 +11,7 @@ import {
 
 import { CardProps } from "../../../types";
 
+// todo: Fabric pattern. Variants: in Hand, at Admin Panel
 export const Card: FC<CardProps> = ({ name, onClick }) => {
   return (
     <CardStyled onClick={onClick}>
