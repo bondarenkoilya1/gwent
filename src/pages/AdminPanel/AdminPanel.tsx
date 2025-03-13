@@ -36,12 +36,12 @@ export const AdminPanel = () => {
     }
   };
 
-  const deleteCardSet = async (cardId: string) => {
+  const deleteCardSet = async (cardSetId: string) => {
     setIsLoading(true);
     setError(null);
 
     try {
-      await deleteItem("/card-set", `/${cardId}`);
+      await deleteItem("/card-set", `/${cardSetId}`);
       await fetchCardSets();
     } catch (error: any) {
       setError(error.message);
