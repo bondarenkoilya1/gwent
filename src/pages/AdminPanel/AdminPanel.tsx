@@ -1,6 +1,21 @@
 import { useEffect, useState } from "react";
 
-import { del, get } from "../../http";
+import {
+  AdminPanelButtonStyles,
+  AdminPanelCardSetsStyled,
+  AdminPanelErrorStyled,
+  AdminPanelStyled,
+  AdminPanelTitleStyled
+} from "./styled";
+import styled from "@emotion/styled";
+
+import { Button } from "../../components";
+import { CardSet } from "../../components/CardSet";
+import { deleteItem, get } from "../../http";
+
+// In future this will be brought out to different components
+
+const AdminPanelButtonStyled = styled(Button)(AdminPanelButtonStyles);
 
 export const AdminPanel = () => {
   const [cardSets, setCardSets] = useState([]);
@@ -26,7 +41,7 @@ export const AdminPanel = () => {
     setError(null);
 
     try {
-      await del("/card-set", `/${cardId}`);
+      await deleteItem("/card-set", `/${cardId}`);
       await fetchCardSets();
     } catch (error: any) {
       setError(error.message);
@@ -39,44 +54,22 @@ export const AdminPanel = () => {
     fetchCardSets();
   }, [cardSets]);
 
+  const renderError: any = (error: any) =>
+    error && <AdminPanelErrorStyled>Error occurred. {error}</AdminPanelErrorStyled>;
+
   return (
-    <section style={{ color: "#000" }}>
-      <h1>Admin panel</h1>
-      <button onClick={fetchCardSets}>Update</button>
-      <div>{error && `Error occurred. ${error}`}</div>
+    <AdminPanelStyled>
+      <AdminPanelTitleStyled>Admin panel</AdminPanelTitleStyled>
+      <AdminPanelButtonStyled onClick={fetchCardSets}>Update</AdminPanelButtonStyled>
+      {renderError(error)}
       {isLoading ? (
         "Loading..."
       ) : (
-        <ul>
+        <AdminPanelCardSetsStyled>
           {cardSets &&
-            cardSets.map((set: any) => (
-              <div key={set._id} style={{ marginTop: "20px" }}>
-                <li style={{ fontSize: "24px", marginBottom: "10px" }}>
-                  CardSet name: <span style={{ fontWeight: 700 }}>{set.cardSetName}</span>{" "}
-                  <span
-                    onClick={() => deleteCardSet(set._id)}
-                    style={{
-                      color: "red",
-                      fontSize: "16px",
-                      cursor: "pointer",
-                      userSelect: "none"
-                    }}>
-                    [DELETE]
-                  </span>
-                </li>
-                <div>
-                  {set.cards.map((card: any) => (
-                    <ul key={card._id} style={{ marginBottom: "10px" }}>
-                      <li>Card name: {card.name}</li>
-                      <li>Card type: {card.type}</li>
-                      <li>Card points: {card.points}</li>
-                    </ul>
-                  ))}
-                </div>
-              </div>
-            ))}
-        </ul>
+            cardSets.map((set: any) => <CardSet set={set} deleteCardSet={deleteCardSet} />)}
+        </AdminPanelCardSetsStyled>
       )}
-    </section>
+    </AdminPanelStyled>
   );
 };

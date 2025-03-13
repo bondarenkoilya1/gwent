@@ -14,10 +14,11 @@ export const Button: FC<ButtonProps> = ({
   type = "button",
   variant = "primary",
   hasIcon,
-  icon
+  icon,
+  onClick
 }) => {
   return (
-    <ButtonStyled className={className} type={type} variant={variant}>
+    <ButtonStyled className={className} type={type} variant={variant} onClick={onClick}>
       {hasIcon == "onLeft" && icon && renderLeftIcon(icon)}
       {children}
     </ButtonStyled>
