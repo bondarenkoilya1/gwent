@@ -15,6 +15,10 @@ export type CardProps = {
   onClick?: () => void;
 };
 
+export type CardListProps = {
+  cards: CardProps[];
+};
+
 export type CardWrapperProps = {
   card: CardProps;
   location?: CardLocation;
