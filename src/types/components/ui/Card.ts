@@ -1,5 +1,6 @@
 export type CardType = "close" | "range" | "siege";
 type Speciality = "multiplier";
+type CardLocation = "board" | "adminPanel";
 
 export type CardProps = {
   // todo: fix these mess with ids. I guess i should not set id myself, because i already have _id from mongo
@@ -16,5 +17,6 @@ export type CardProps = {
 
 export type CardWrapperProps = {
   card: CardProps;
+  location?: CardLocation;
   onClick?: () => void;
 };
