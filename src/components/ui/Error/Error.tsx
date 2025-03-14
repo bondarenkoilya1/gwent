@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { ErrorProps } from "../../../types";
+import { ErrorProps } from "src/types";
 
 import { UnspecifiedError } from "./UnspecifiedError";
 

@@ -9,10 +9,14 @@ import {
 } from "./styled";
 import styled from "@emotion/styled";
 
-import { Button } from "../../components";
-import { CardSet } from "../../components/CardSet";
-import { deleteItem, get } from "../../http";
-import { CardSetProps, CardSets } from "../../types";
+import { Button } from "src/components";
+import { CardSet } from "src/components/CardSet";
+
+import { CardSetProps, CardSets } from "src/types";
+
+import { validateError } from "src/utils";
+
+import { deleteItem, get } from "src/http";
 
 // In future this will be brought out to different components
 
@@ -31,12 +35,7 @@ export const AdminPanel = () => {
       const sets: CardSets = await get("/card-sets");
       setCardSets((prev) => (JSON.stringify(prev) === JSON.stringify(sets) ? prev : sets));
     } catch (error) {
-      // todo: bring out. DRY
-      if (error instanceof Error) {
-        setError(error.message);
-      }
-
-      setError("Unexpected error, please try again later");
+      validateError(error);
     } finally {
       setIsLoading(false);
     }
@@ -50,11 +49,7 @@ export const AdminPanel = () => {
       await deleteItem("/card-set", `/${cardSetId}`);
       await fetchCardSets();
     } catch (error) {
-      if (error instanceof Error) {
-        setError(error.message);
-      }
-
-      setError("Unexpected error, please try again later");
+      validateError(error);
     } finally {
       setIsLoading(false);
     }

@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import { HandCardNameStyled, HandCardStyled } from "./styled";
 
-import { CardWrapperProps } from "../../../../types";
+import { CardWrapperProps } from "src/types";
 
 export const HandCard: FC<CardWrapperProps> = ({ card, onClick }) => {
   const { name } = card;

@@ -1,4 +1,4 @@
-import { SectionPrimary } from "../../components";
+import { SectionPrimary } from "src/components";
 
 export const Main = () => {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { CSS } from "../../global";
+import { CSS } from "src/types";
 
 import { CardProps, CardType } from "./Card";
 
