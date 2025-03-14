@@ -4,8 +4,6 @@ import styled from "@emotion/styled";
 
 import youngManPhoto from "../../../assets/photos/sectionPrimary/young-man.png";
 
-// todo: bring color to the global color group: #146EE4, #f21e1e
-
 // todo: maybe export to global styles
 export const LearnStyled = styled.div`
   width: 50%;

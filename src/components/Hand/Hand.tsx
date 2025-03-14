@@ -43,21 +43,9 @@ export const Hand: FC<CardsOnBoardUpdater> = ({ outsideStyles, setCardsOnBoard, 
 
       <TitleStyled>Your Hand</TitleStyled>
       <CardRow type="hand">
-        {cardsInHand.map((card: CardProps) => {
-          const { id, name, description, type, points } = card;
-
-          return (
-            <Card
-              id={id}
-              name={name}
-              description={description}
-              type={type}
-              points={points}
-              key={uuidv4()}
-              onClick={() => addCardToBoard(card)}
-            />
-          );
-        })}
+        {cardsInHand.map((card: CardProps) => (
+          <Card card={card} onClick={() => addCardToBoard(card)} key={uuidv4()} />
+        ))}
       </CardRow>
     </HandStyled>
   );
