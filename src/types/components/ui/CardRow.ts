@@ -1,4 +1,4 @@
-import { Children, CSS } from "../../global";
+import { Children, CSS } from "src/types";
 
 import { CardType } from "./Card";
 

@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 
 // import { Game, Main } from "../pages";
-import { AdminPanel } from "../pages";
+import { AdminPanel } from "src/pages";
 
 export const Layout = () => {
   return (

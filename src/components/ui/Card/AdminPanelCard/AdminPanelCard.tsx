@@ -8,7 +8,7 @@ import {
   AdminPanelCardTypeStyled
 } from "./styled";
 
-import { CardWrapperProps } from "../../../../types";
+import { CardWrapperProps } from "src/types";
 
 export const AdminPanelCard: FC<CardWrapperProps> = ({ card }) => {
   const { name, type, points } = card;

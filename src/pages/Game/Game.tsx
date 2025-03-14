@@ -1,10 +1,11 @@
 import { useState } from "react";
 
-import { ContainerStyled } from "../../styled";
 import { ContainerStyles, GamePageStyled, HandStyles } from "./styled";
+import { ContainerStyled } from "src/styled";
 
-import { Hand, PlayerBoard } from "../../components";
-import { RowProps } from "../../types";
+import { Hand, PlayerBoard } from "src/components";
+
+import { RowProps } from "src/types";
 
 export const Game = () => {
   const [cardsOnBoard, setCardsOnBoard] = useState<RowProps[]>([

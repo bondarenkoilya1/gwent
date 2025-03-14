@@ -1,6 +1,7 @@
 import { FC } from "react";
 
-import { CardListProps, CardProps } from "../../../types";
+import { CardListProps, CardProps } from "src/types";
+
 import { Card } from "../Card";
 
 export const CardList: FC<CardListProps> = ({ cards }) => {

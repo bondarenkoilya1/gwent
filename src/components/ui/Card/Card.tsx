@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { CardWrapperProps } from "../../../types";
+import { CardWrapperProps } from "src/types";
 
 import { AdminPanelCard } from "./AdminPanelCard";
 import { HandCard } from "./HandCard";
