@@ -1,6 +1,6 @@
 export type CardType = "close" | "range" | "siege";
 type Speciality = "multiplier";
-type CardLocation = "board" | "adminPanel";
+type CardLocation = "hand" | "adminPanel";
 
 export type CardProps = {
   // todo: fix these mess with ids. I guess i should not set id myself, because i already have _id from mongo

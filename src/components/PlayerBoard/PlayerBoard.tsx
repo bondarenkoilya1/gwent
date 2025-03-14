@@ -27,15 +27,8 @@ export const PlayerBoard: FC<CardsOnBoardArray> = ({
   const renderRowsByCardTypes = () =>
     CARD_TYPES.map((type: CardType, index) => (
       <CardRow outsideStyles={CardRowStyles} type={type} key={uuidv4()}>
-        {cardsOnBoard[index].cards.map(({ id, name, description, type, points }) => (
-          <Card
-            key={id}
-            id={id}
-            name={name}
-            description={description}
-            type={type}
-            points={points}
-          />
+        {cardsOnBoard[index].cards.map((card) => (
+          <Card card={card} key={card._id} />
         ))}
       </CardRow>
     ));
