@@ -1,8 +1,8 @@
 import { FC } from "react";
 
 import { CardProps, CardSetWrapperProps } from "../../types";
+import { Card } from "../ui";
 
-import { Card } from "./Card";
 import { CardList } from "./CardList";
 
 // zustand for deleteCardSet
@@ -24,8 +24,9 @@ export const CardSet: FC<CardSetWrapperProps> = ({ set, deleteCardSet }) => {
         </span>
       </li>
       <CardList>
+        {/*bring this to card list component*/}
         {set.cards.map((card: CardProps) => (
-          <Card card={card} key={card._id} />
+          <Card location="adminPanel" card={card} key={card._id} />
         ))}
       </CardList>
     </div>

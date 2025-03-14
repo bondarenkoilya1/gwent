@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export const CardStyled = styled.li`
+export const AdminPanelCardStyled = styled.li`
   margin-bottom: 10px;
   max-width: 300px;
   border-radius: 6px;
@@ -12,21 +12,21 @@ export const CardStyled = styled.li`
   }
 `;
 
-export const CardPropertiesStyled = styled.ul``;
+export const AdminPanelCardPropertiesStyled = styled.ul``;
 
-export const CardTitleStyled = styled.h3`
+export const AdminPanelCardTitleStyled = styled.h3`
   font-weight: 700;
   text-align: center;
   margin-bottom: 20px;
 `;
 
-export const CardPointsStyled = styled.li`
+export const AdminPanelCardPointsStyled = styled.li`
   & > span {
     font-weight: 700;
   }
 `;
 
-export const CardTypeStyled = styled.li`
+export const AdminPanelCardTypeStyled = styled.li`
   & > span {
     text-transform: capitalize;
     font-weight: 700;

@@ -5,9 +5,8 @@ import { ButtonStyled, LeftIconStyled } from "./styled";
 
 import { ButtonProps, JSXElement } from "../../../types";
 
-// TODO: Create theme for colors with emotion
-// ! Probably the task is not so complicated to create new files. I guess I'll do this logic in one file for now
-
+/* The task is not so complicated to create new files.
+   I'll do different button variants in one file for now */
 export const Button: FC<ButtonProps> = ({
   className,
   children,
@@ -35,5 +34,3 @@ function renderLeftIcon(icon: IconType): JSXElement {
     </LeftIconStyled>
   );
 }
-
-// todo: on lint i need to find all .styled.*ts* imports and remove ,ts
