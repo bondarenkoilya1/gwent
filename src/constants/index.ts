@@ -1,4 +1,4 @@
-import { CardType } from "../types";
+import { CardType } from "src/types";
 
 export const CARDS_IN_HAND = 10;
 export const CARD_TYPES: CardType[] = ["close", "range", "siege"];

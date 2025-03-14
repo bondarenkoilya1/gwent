@@ -1,8 +1,8 @@
 import { createRoot } from "react-dom/client";
 
-import { App } from "./App";
+import { App } from "src/App";
 
-import { Providers } from "./providers";
+import { Providers } from "src/providers";
 
 createRoot(document.getElementById("root")!).render(
   <Providers>

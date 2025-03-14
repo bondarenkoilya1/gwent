@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 
-import { CARDS_IN_HAND } from "../constants";
-import { CardProps } from "../types";
-import { pickUniqueRandomNumbers, validateError } from "../utils";
+import { CARDS_IN_HAND } from "src/constants";
+
+import { CardProps } from "src/types";
+
+import { pickUniqueRandomNumbers, validateError } from "src/utils";
 
 export const useCardSetup = (fullHandName: string) => {
   const [availableCards, setAvailableCards] = useState<CardProps[]>([]);

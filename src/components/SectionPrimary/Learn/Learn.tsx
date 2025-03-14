@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { LearnButtonStyles, LearnDescriptionStyled, LearnStyled, LearnTitleStyled } from "./styled";
 import styled from "@emotion/styled";
 
-import { Button } from "../../ui";
+import { Button } from "src/components";
 
 const ButtonStyled = styled(Button)(LearnButtonStyles);
 

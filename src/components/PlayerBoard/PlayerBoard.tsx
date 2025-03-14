@@ -3,10 +3,13 @@ import { v4 as uuidv4 } from "uuid";
 
 import { CardRowStyles, PlayerBoardStyled } from "./styled";
 
-import { CARD_TYPES } from "../../constants";
-import { CardProps, CardsOnBoardArray, CardType } from "../../types";
-import { saveCurrentScore } from "../../utils";
-import { Card, CardRow } from "../ui";
+import { CARD_TYPES } from "src/constants";
+
+import { Card, CardRow } from "src/components";
+
+import { CardProps, CardsOnBoardArray, CardType } from "src/types";
+
+import { saveCurrentScore } from "src/utils";
 
 export const PlayerBoard: FC<CardsOnBoardArray> = ({
   cardsOnBoard,

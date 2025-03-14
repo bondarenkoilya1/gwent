@@ -1,7 +1,8 @@
 import { FC } from "react";
 
-import { CardSetWrapperProps } from "../../types";
-import { CardList } from "../ui";
+import { CardList } from "src/components";
+
+import { CardSetWrapperProps } from "src/types";
 
 // zustand for deleteCardSet
 // This component can even be brought out to the UI folder in the future
