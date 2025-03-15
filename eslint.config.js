@@ -69,7 +69,7 @@ export default [
             ["src/import\\s+type"],
             ["src/types", "src/types(/.*|$)"],
             ["src/utils(/.*|$)"],
-            ["src/http(/.*|$)"],
+            ["src/api(/.*|$)"],
             ["src/services(/.*|$)"],
             ["src/store(/.*|$)"],
             ["src/hooks(/.*|$)"],

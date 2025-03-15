@@ -2,10 +2,8 @@ import { API_URL } from "src/config";
 
 const baseUrl = API_URL;
 
-export async function deleteItem<T>(url: string, cardId: string): Promise<T> {
-  const response = await fetch(`${baseUrl}${url}${cardId}`, {
-    method: "DELETE"
-  });
+export async function fetchItem<T>(url: string, options?: RequestInit): Promise<T> {
+  const response = await fetch(`${baseUrl}${url}`, options);
 
   if (!response.ok) {
     throw new Error(`Network response was not ok. Response status: ${response.status}`);
