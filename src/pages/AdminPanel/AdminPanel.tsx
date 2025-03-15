@@ -16,9 +16,13 @@ import { CardSetProps, CardSets } from "src/types";
 
 import { validateError } from "src/utils";
 
-import { deleteItem, get } from "src/http";
+import { fetchItem } from "src/api";
 
 // In future this will be brought out to different components
+
+type ErrorFromServerProps = {
+  message: string;
+};
 
 const AdminPanelButtonStyled = styled(Button)(AdminPanelButtonStyles);
 
@@ -27,12 +31,13 @@ export const AdminPanel = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  /* JOIN SOMEHOW. MAYBE HOOK */
   const fetchCardSets = async () => {
     setIsLoading(true);
     setError(null);
 
     try {
-      const sets: CardSets = await get("/card-sets");
+      const sets: CardSets = await fetchItem<CardSets>("/card-sets");
       setCardSets((prev) => (JSON.stringify(prev) === JSON.stringify(sets) ? prev : sets));
     } catch (error) {
       validateError(error);
@@ -42,27 +47,28 @@ export const AdminPanel = () => {
   };
 
   const deleteCardSet = async (cardSetId: string) => {
-    setIsLoading(true);
     setError(null);
 
+    const options = {
+      method: "DELETE"
+    };
+
     try {
-      await deleteItem("/card-set", `/${cardSetId}`);
-      await fetchCardSets();
+      await fetchItem<ErrorFromServerProps>(`/card-set/${cardSetId}`, options);
+      fetchCardSets();
     } catch (error) {
       validateError(error);
-    } finally {
-      setIsLoading(false);
     }
   };
+  /* JOIN SOMEHOW. MAYBE HOOK */
 
   useEffect(() => {
     fetchCardSets();
-  }, [cardSets]);
+  }, []);
 
   const renderError = (error: string | null) =>
     error && <AdminPanelErrorStyled>Error occurred. {error}</AdminPanelErrorStyled>;
 
-  // @ts-ignore
   return (
     <AdminPanelStyled>
       <AdminPanelTitleStyled>Admin panel</AdminPanelTitleStyled>
