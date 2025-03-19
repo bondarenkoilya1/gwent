@@ -58,9 +58,9 @@ export default [
             ["^@"], // Imports starting with @
             ["App"],
             ["./styled", "^styled(/.*|$)"],
+            ["src/router(/.*|$)"],
             ["src/themes(/.*|$)"],
             ["src/providers(/.*|$)"],
-            ["src/layout(/.*|$)"],
             ["src/pages(/.*|$)"],
             ["src/config(/.*|$)"],
             ["src/constants(/.*|$)"],

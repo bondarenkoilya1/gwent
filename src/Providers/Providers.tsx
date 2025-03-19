@@ -1,16 +1,15 @@
-import { FC } from "react";
-import { BrowserRouter } from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
 
 import { ThemeProvider } from "@emotion/react";
 
+import { router } from "src/router";
+
 import { defaultTheme } from "src/themes";
 
-import { Children } from "src/types";
-
-export const Providers: FC<Children> = ({ children }) => {
+export const Providers = () => {
   return (
-    <BrowserRouter>
-      <ThemeProvider theme={defaultTheme}>{children}</ThemeProvider>
-    </BrowserRouter>
+    <ThemeProvider theme={defaultTheme}>
+      <RouterProvider router={router} />
+    </ThemeProvider>
   );
 };
